@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+		body{
+			text-align: center;
+			font-family: sans-serif;
+			background-color: black;
+		}
+		input{
+			width: 20%;
+			height: 30px;
+		}
+		.phonetext{
+			font-size: 85%;
+			font-weight: bold;
+			color: red;
+		}
+		.emailtext{
+			font-size: 85%;
+			font-weight: bold;
+			color: red;
+		}
+		.passwordtext{
+			font-size: 85%;
+			font-weight: bold;
+			color: red;
+		}
+	</style>
+</head>
+<body style="text-align: center;">
+	<div>
+	<input type="" name="" id="phone" placeholder="phone number"> <br>
+	<div id="phonetext" class="phonetext"></div> <br>
+	<input type="" name="" id="emai" placeholder="Email"> <br>
+	<div id="emailtext" class="emailtext"></div> <br>
+	<input type="" name="" id="pass" placeholder="Password"> <br> <br>
+	<div id="passwordtext" class="passwordtext"></div> <br>
+	<button type="submit" onclick="validate()" >Validate</button>
+	</div>
+	<script type="text/javascript">
+		const validate=()=>{
+			let phoneNumber=phone.value
+			let email=emai.value
+			let password=pass.value
+			 let phoneRGEX = /^[\d]{11}$/
+			 let emailRGEX= /^([\S]+)([@][a-z]{2,6})([.][a-z]{2,5})$/
+			 let passRGEX=  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/
+  let phoneResult = phoneRGEX.test(phoneNumber)
+  let emailResult =emailRGEX.test(email) 
+  let passResult = passRGEX.test(password)
+  phonetext.innerHTML=''
+  emailtext.innerHTML=''
+  passwordtext.innerHTML=''
+  document.getElementById("phone").style.borderColor = "black";
+  document.getElementById("pass").style.borderColor = "black";
+  document.getElementById("emai").style.borderColor = "black";
+  if (phoneResult==false){
+  	phonetext.innerHTML=('(Please enter a valid Phone Number!)')
+  	document.getElementById("phone").style.borderColor = "red";
+  }
+    else if(emailResult==false){
+  	emailtext.innerHTML=('(Please enter a valid email!)')
+  	document.getElementById("emai").style.borderColor = "red";
+  	
+}
+else if(passResult==false){
+		passwordtext.innerHTML=('(Password should have at least one Upper case,a Lower case and a number!)')
+		document.getElementById("pass").style.borderColor = "red";
+}
+else{
+	location.assign('HOF.html')
+}
+}
+	</script>
+</body>
+</html
